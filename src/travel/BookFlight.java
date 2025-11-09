@@ -20,7 +20,7 @@ public class BookFlight extends JFrame implements ActionListener {
 
     private JComboBox<String> fromBox, toBox, classBox, airlineBox, passengerBox;
     private JTextField dateField;
-    private JButton searchButton;
+    private JButton searchButton, backButton;
     private JTable flightTable;
 
     public BookFlight() {
@@ -73,9 +73,23 @@ public class BookFlight extends JFrame implements ActionListener {
         searchButton.addActionListener(this);
         searchButton.setFocusPainted(false);
 
-        JPanel btnPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        JPanel btnPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 20, 10));
         btnPanel.setBackground(CARD_BG);
         btnPanel.add(searchButton);
+
+        // Back Button
+        backButton = new JButton("← Back to Dashboard");
+        backButton.setBackground(BRAND_BLUE);
+        backButton.setForeground(Color.WHITE);
+        backButton.setFont(FONT_BOLD_14);
+        backButton.setFocusPainted(false);
+        backButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        backButton.setBorder(BorderFactory.createEmptyBorder(8, 15, 8, 15));
+        backButton.addActionListener(e -> {
+            this.dispose(); // Close current window
+            new Dashboard("User").setVisible(true); // Redirect to Dashboard
+        });
+        btnPanel.add(backButton);
 
         JPanel topPanel = new JPanel(new BorderLayout());
         topPanel.add(formPanel, BorderLayout.CENTER);
