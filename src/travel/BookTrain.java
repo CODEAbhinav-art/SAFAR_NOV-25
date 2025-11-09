@@ -25,7 +25,7 @@ public class BookTrain extends JFrame implements ActionListener {
 
     private JComboBox<String> fromBox, toBox, classBox, passengerBox;
     private JTextField dateField;
-    private JButton searchButton;
+    private JButton searchButton, backButton;
     private JTable trainTable;
 
     public BookTrain() {
@@ -70,6 +70,7 @@ public class BookTrain extends JFrame implements ActionListener {
         formPanel.add(labeledField("Class", classBox));
         formPanel.add(labeledField("Passengers", passengerBox));
 
+        // --- Button Panel ---
         searchButton = new JButton("Search Trains");
         searchButton.setBackground(BRAND_TEAL);
         searchButton.setForeground(Color.WHITE);
@@ -77,9 +78,22 @@ public class BookTrain extends JFrame implements ActionListener {
         searchButton.setFocusPainted(false);
         searchButton.addActionListener(this);
 
-        JPanel btnPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        backButton = new JButton("← Back to Dashboard");
+        backButton.setBackground(BRAND_BLUE);
+        backButton.setForeground(Color.WHITE);
+        backButton.setFont(FONT_BOLD_14);
+        backButton.setFocusPainted(false);
+        backButton.setBorder(BorderFactory.createEmptyBorder(8, 15, 8, 15));
+        backButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        backButton.addActionListener(e -> {
+            this.dispose(); // Close this page
+            new Dashboard("User").setVisible(true); // Return to Dashboard
+        });
+
+        JPanel btnPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 20, 10));
         btnPanel.setBackground(CARD_BG);
         btnPanel.add(searchButton);
+        btnPanel.add(backButton);
 
         JPanel topPanel = new JPanel(new BorderLayout());
         topPanel.setBackground(CONTENT_BG);
