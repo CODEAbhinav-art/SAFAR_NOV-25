@@ -271,21 +271,24 @@ public class Dashboard extends JFrame implements ActionListener {
         switch (cmd) {
             case "Book Train Ticket":
                 new BookTrain().setVisible(true);
+                this.dispose();
                 break;
 
             case "Book Flight Ticket":
             
                 new BookFlight().setVisible(true);
+                this.dispose();
                 break;
 
             case "View Train Bookings":
-           
+            				   
                 new ViewTrainBookings().setVisible(true);
+                this.dispose();
                 break;
 
             case "View Flight Bookings":
-         
                 new ViewFlightBookings().setVisible(true);
+                this.dispose();
                 break;
 
             case "Update Personal Details":
