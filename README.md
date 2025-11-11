@@ -3,6 +3,39 @@
 Safar is a modern travel booking and management platform built in Java (Swing + JDBC) with full SQL integration.
 It provides a user-friendly travel booking system for trains and flights, along with a powerful Admin Dashboard for system monitoring and control.
 
+#NOTE:-
+## 🗂️ 1️⃣ The “from–to–class” combinations that must exist
+
+The code will only display a train when there’s at least one row in your table like this:
+
+| train_name | from_station | to_station | class_type | departure_time | arrival_time | duration | fare |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Rajdhani Express | Delhi | Mumbai | 2A | 06:00 | 14:30 | 8h 30m | 1420 |
+| Shatabdi Express | Delhi | Mumbai | CC | 09:15 | 16:00 | 6h 45m | 1250 |
+| Garib Rath | Delhi | Mumbai | Sleeper | 11:00 | 19:45 | 8h 45m | 800 |
+| Duronto Express | Mumbai | Chennai | 3A | 20:10 | 06:00 | 9h 50m | 1600 |
+| Goa Express | Delhi | Goa | 3A | 05:45 | 17:30 | 11h 45m | 1350 |
+| Konkan Express | Goa | Mumbai | Sleeper | 09:00 | 16:45 | 7h 45m | 900 |
+| Rajdhani South | Bengaluru | Delhi | 1A | 06:30 | 20:00 | 13h 30m | 2850 |
+| Jaipur Mail | Delhi | Jaipur | 2A | 07:00 | 12:00 | 5h 00m | 950 |
+| Howrah Express | Kolkata | Delhi | 3A | 08:15 | 18:00 | 9h 45m | 1200 |
+| Charminar Express | Hyderabad | Chennai | Sleeper | 09:00 | 18:00 | 9h 00m | 850 |
+| Ahmedabad Mail | Mumbai | Ahmedabad | CC | 07:00 | 10:30 | 3h 30m | 700 |
+| Pune Duronto | Mumbai | Pune | Sleeper | 05:30 | 08:15 | 2h 45m | 600 |
+
+#For Flights:-
+
+| flight_code | flight_name | from_city | to_city | class_type | airline | departure_time | arrival_time | fare |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| AI202 | Air India Express | Delhi | Mumbai | Economy | Air India | 06:30 | 08:45 | 6500 |
+| 6E152 | IndiGo 152 | Delhi | Mumbai | Economy | IndiGo | 08:00 | 10:10 | 5500 |
+| UK812 | Vistara 812 | Delhi | Goa | Economy | Vistara | 11:00 | 13:15 | 7200 |
+| SG303 | SpiceJet 303 | Mumbai | Chennai | Economy | SpiceJet | 14:00 | 16:10 | 5800 |
+| AI705 | Air India 705 | Kolkata | Delhi | Business | Air India | 07:15 | 09:30 | 11200 |
+| 6E410 | IndiGo 410 | Bengaluru | Delhi | Economy | IndiGo | 05:50 | 08:20 | 6200 |
+| UK205 | Vistara 205 | Mumbai | Goa | Premium Economy | Vistara | 13:00 | 14:15 | 7400 |
+| AI301 | Air India 301 | Delhi | Chennai | Economy | Air India | 10:00 | 12:45 | 6700 |
+
 🚀 Features Overview
 👤 User Module
 
