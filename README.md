@@ -1,121 +1,210 @@
-# SAFAR_NOV-25
-# ✈️ SAFAR by GSV — Travel Planner (Java Swing)
+🧳 Safar Travel Management System
 
-> A modern desktop-based **Travel Planner** application built using **Java Swing**, featuring an elegant login interface and modular navigation for user and admin access.
+Safar is a modern travel booking and management platform built in Java (Swing + JDBC) with full SQL integration.
+It provides a user-friendly travel booking system for trains and flights, along with a powerful Admin Dashboard for system monitoring and control.
 
----
+🚀 Features Overview
+👤 User Module
 
-## 🖥️ Overview
+Secure Login, Signup, and Forgot Password screens
 
-This project is part of the **SAFAR by GSV** suite — a Java-based travel management platform designed for students, travelers, and administrators.  
-It provides a clean and interactive **Login UI** using **Java Swing**, following modular principles and OOP-based window handling.
+Wallet System (add money, auto fare deduction on booking)
 
----
+Book Train Tickets (with real-time fare, class, and date filtering)
 
-## 🚀 Features
+Book Flight Tickets (modern interface like IRCTC/Airline apps)
 
-### 🔐 **Login Interface**
-- User-friendly login window with smooth navigation.  
-- Form fields for **username** and **password** with input validation placeholders.  
-- Buttons for:
-  - **Login**
-  - **Sign Up**
-  - **Forgot Password**
-  - **Admin Login**
+View booking history (Train & Flight separately)
 
-### 🎨 **Modern UI Design**
-- Minimal, professional color palette (deep blue and teal accents).
-- Uses the **Poppins** font for consistent typography.
-- Left panel features branding: `✈️ SAFAR by GSV`.
-- Right panel includes the login form and interactive buttons.
+Beautiful modern UI using Poppins font and color branding
 
-### ⚙️ **Navigation**
-- Navigates to:
-  - `Signup.java` window for new user registration.
-  - `Dashboard.java` for logged-in users.
-  - `AdminLogin.java` for administrator access.
-- Displays message dialogs for user feedback (using `JOptionPane`).
+🧑‍💼 Admin Module
 
----
+Access via separate Admin Login
 
-## 📸 UI Preview (Structure)
+Dashboard overview with live stats:
 
-+-----------------------------------------------------------+
+Total Users 👥
 
-✈️ SAFAR by GSV (Blue Panel)
-Username: [___________]
-Password: [___________]
-[Login] [Sign Up]
-Forgot Password? Admin Login
-+-----------------------------------------------------------+
+Train Bookings 🚆
+
+Flight Bookings ✈️
+
+Total Revenue 💰
+
+Manage Users
+
+View all registered users
+
+Delete users (auto-deletes related bookings)
+
+View Train Bookings
+
+List all train bookings by users
+
+View Flight Bookings
+
+List all flight bookings by users
+
+🗂️ Project Structure
+Safar/
+│
+├── src/
+│   └── travel/
+│       ├── DBConnection.java          # Database connection helper
+│       ├── Login.java                 # User login page
+│       ├── Signup.java                # User registration page
+│       ├── ForgotPassword.java        # Password reset screen
+│       ├── Dashboard.java             # User dashboard with wallet & navigation
+│       ├── BookTrain.java             # Train booking module
+│       ├── ViewTrainBookings.java     # View booked train tickets
+│       ├── BookFlight.java            # Flight booking module
+│       ├── ViewFlightBookings.java    # View booked flights
+│       ├── AdminLogin.java            # Admin login screen
+│       └── AdminDashboard.java        # Admin control panel (SQL-integrated)
+│
+├── assets/
+│   ├── logo.png                       # App logo (used in login screens)
+│   ├── icons/                         # Optional icons
+│
+└── README.md
+
+💾 Database Schema (MySQL)
+
+You’ll need a MySQL database named safar (or modify in DBConnection.java).
+
+🧍‍♂️ Table: users
+CREATE TABLE users (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  username VARCHAR(50) UNIQUE,
+  fullname VARCHAR(100),
+  email VARCHAR(100),
+  password VARCHAR(100),
+  wallet_balance DOUBLE DEFAULT 0
+);
+
+🚆 Table: train_bookings
+CREATE TABLE train_bookings (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  username VARCHAR(50),
+  train_name VARCHAR(100),
+  journey_date DATE,
+  class_type VARCHAR(50),
+  passengers INT,
+  fare DOUBLE,
+  status VARCHAR(50)
+);
+
+✈️ Table: flight_bookings
+CREATE TABLE flight_bookings (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  username VARCHAR(50),
+  flight_code VARCHAR(50),
+  class_type VARCHAR(50),
+  passengers INT,
+  fare DOUBLE,
+  status VARCHAR(50)
+);
+
+🚉 Table: trains
+CREATE TABLE trains (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  train_name VARCHAR(100),
+  from_station VARCHAR(100),
+  to_station VARCHAR(100),
+  class_type VARCHAR(50),
+  journey_date DATE,
+  departure_time VARCHAR(10),
+  arrival_time VARCHAR(10),
+  duration VARCHAR(20),
+  fare DOUBLE
+);
+
+🛫 Table: flights
+CREATE TABLE flights (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  flight_code VARCHAR(50),
+  from_city VARCHAR(100),
+  to_city VARCHAR(100),
+  class_type VARCHAR(50),
+  departure_time VARCHAR(10),
+  arrival_time VARCHAR(10),
+  fare DOUBLE,
+  airline VARCHAR(100)
+);
+
+⚙️ Setup Instructions
+
+Clone this repository
+
+git clone https://github.com/your-username/Safar-Travel-System.git
+cd Safar-Travel-System
 
 
-## 🧩 Code Structure (As of Now)
+Set up Database
 
-src/
-└── travel/
-├── Login.java # Main Login Window (this file)
-├── Signup.java # Registration form window
-├── Dashboard.java # User dashboard post-login
-└── AdminLogin.java # Admin authentication window
+Create a database in MySQL named safar
+
+Run the SQL scripts above
+
+Configure DBConnection.java
+
+private static final String URL = "jdbc:mysql://localhost:3306/safar";
+private static final String USER = "root";
+private static final String PASSWORD = "your_password";
 
 
-## 🧠 Technical Concepts Used
+Run the project
 
-| Concept | Description |
-|----------|-------------|
-| **Swing Framework** | For GUI components like JFrame, JPanel, JButton, JLabel, JTextField, etc. |
-| **Event Handling** | Implements `ActionListener` to handle button actions. |
-| **Layout Management** | Combines BorderLayout and absolute positioning for clean UI alignment. |
-| **OOP Design** | Uses encapsulation for UI components and modular navigation between frames. |
-| **Custom Styling** | Uses custom fonts, color schemes, and minimalistic UI for modern aesthetics. |
+Compile all .java files under src/travel
 
----
+Run Login.java for users or AdminLogin.java for admins
 
-## 🏗️ How to Run
+🖼️ Screenshots
+Page	Description
 
-### 1. **Clone the Repository**
-```bash
-git clone https://github.com/<your-username>/safar-travel-planner.git
-cd safar-travel-planner
-2. Compile the Source
-Make sure you have JDK 8 or above installed.
+	User login screen
 
-bash
-Copy code
-javac -d bin src/travel/Login.java
-3. Run the Application
-bash
-Copy code
-java -cp bin travel.Login
-🧰 Requirements
-Tool	Version
-Java (JDK)	8 or above
-IDE (Optional)	IntelliJ IDEA / Eclipse / NetBeans
-Font (Optional)	Poppins (for better UI rendering)
+	User dashboard with wallet
 
-🧱 Future Enhancements
-🔑 Database integration (MySQL or SQLite) for user authentication.
+	Train booking page
 
-📡 API integration for travel booking.
+	Flight booking page
 
-📱 Responsive GUI with JavaFX or modern UI libraries.
+	Admin control panel overview
 
-🧭 Dashboard with trip planner, maps, and analytics.
+(Add screenshots in /assets/screens/ folder for full preview)
 
-🧑‍💼 Admin portal for user management and reports.
+🧠 Tech Stack
+Component	Technology
+Frontend (UI)	Java Swing
+Backend	JDBC + MySQL
+Language	Java 17+
+Database	MySQL 8.0
+IDE (Recommended)	IntelliJ IDEA / Eclipse
+🔒 Security & Validation
 
-👩‍💻 Author
-Developed by:
-Aayush Praveen (24AI002)
-Abhinav Mishra (24AI004)
-Aditya Jaiswal (24AI007)
-Aman Sharma (24AI010)
+Passwords encrypted before storage (optional upgrade)
 
-📝 License
-This project is licensed under the MIT License — you’re free to modify and use it for personal or academic purposes.
+SQL Injection-safe prepared statements
 
-❤️ Acknowledgements
-Special thanks to the Java Swing Framework and the open-source community for enabling desktop-based UI development with elegant customization.
+Input validation across all forms
 
-"Code the journey, travel the world — one frame at a time."
+Admin restricted access with login check
+
+💡 Future Enhancements
+
+ Add digital invoice generation (PDF)
+
+ Add search filters in Admin panels
+
+ User profile editing & password change
+
+ Multi-city and round-trip bookings
+
+ Analytics charts in admin dashboard
+
+Aayush Praveen
+Abhinav Mishra
+Aditya Jaiswal
+Aman Sharma
