@@ -1,5 +1,5 @@
 package travel;
-
+// check 1 in Loading Spinner
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -127,3 +127,4 @@ public class LoadingSpinner extends JFrame implements Runnable {
         });
     }
 }
+
