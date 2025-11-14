@@ -1,10 +1,3 @@
-🧳 Safar Travel Management System
-
-PROJECT DEMO:-
-https://github.com/user-attachments/assets/59f4bf55-26d2-4c21-9f59-83e6397672ad
-
-
-
 # 🧳 **Safar — Travel Management System (Java + MySQL)**
 
 A modern, full-featured **Travel Booking Platform** built with **Java Swing + JDBC + MySQL**.
