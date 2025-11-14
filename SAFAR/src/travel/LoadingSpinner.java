@@ -289,7 +289,7 @@ public class LoadingSpinner extends JFrame implements Runnable {
 
                 for (String msg : messages) {
                     currentLoadingMessage = msg;
-                    Thread.sleep(600); 
+                    Thread.sleep(1000); 
                 }
 
             // Tell the game loop to take over the fade-out
@@ -397,4 +397,5 @@ public class LoadingSpinner extends JFrame implements Runnable {
         public void update(int width, int height) { this.y -= speed; if (this.y < -size) { reset(width, height, false); } }
         public void draw(Graphics2D g2d) { g2d.setColor(new Color(255, 255, 255, alpha)); g2d.fillOval((int)x, (int)y, size, size); }
     }
+
 }
