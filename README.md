@@ -3,13 +3,11 @@
 A modern, full-featured **Travel Booking Platform** built with **Java Swing + JDBC + MySQL**.
 Safar allows users to book trains & flights, manage wallet balance, view booking history, and provides a full **Admin Dashboard** for managing the system.
 
----
-
 ## 🎥 **Demo**
 
-*(Add screenshots or GIF here)*
 
----
+https://github.com/user-attachments/assets/923f001a-a358-453e-9a6b-7c7abde3f8b5
+
 
 # ⚠️ IMPORTANT
 
