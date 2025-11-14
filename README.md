@@ -3,6 +3,12 @@
 Safar is a modern travel booking and management platform built in Java (Swing + JDBC) with full SQL integration.
 It provides a user-friendly travel booking system for trains and flights, along with a powerful Admin Dashboard for system monitoring and control.
 
+
+
+https://github.com/user-attachments/assets/59f4bf55-26d2-4c21-9f59-83e6397672ad
+
+
+
 #NOTE:-
 ## 🗂️ 1️⃣ The “from–to–class” combinations that must exist
 
