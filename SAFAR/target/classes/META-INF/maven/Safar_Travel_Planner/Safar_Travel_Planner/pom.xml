@@ -1,0 +1,69 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>Safar_Travel_Planner</groupId>
+  <artifactId>Safar_Travel_Planner</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  
+  <!-- This section tells Eclipse to use Java 17, which is stable and works with these libraries -->
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>17</maven.compiler.source>
+    <maven.compiler.target>17</maven.compiler.target>
+  </properties>
+  
+  <build>
+    <sourceDirectory>src</sourceDirectory>
+    <resources>
+      <resource>
+        <directory>src</directory>
+        <excludes>
+          <exclude>/*.java</exclude>
+        </excludes>
+      </resource>
+    </resources>
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.13.0</version>
+        <configuration>
+          <!-- This must match the <target> property above -->
+          <release>17</release>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+  
+  <!-- This "dependencies" block is the new, important part -->
+  <!-- It tells Maven to automatically download all the JARs you need -->
+  <dependencies>
+    
+    <!-- 1. JasperReports (This fixes your "import net..." error) -->
+    <!-- This will ALSO automatically download all of its own dependencies (like iText, JFreeChart, commons-collections, etc.) -->
+    <dependency>
+        <groupId>net.sf.jasperreports</groupId>
+        <artifactId>jasperreports</artifactId>
+        <version>6.20.0</version> 
+    </dependency>
+
+    <!-- 2. The MySQL Connector (For your database) -->
+    <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>8.0.32</version>
+    </dependency>
+
+    <!-- 3. The Calendar Pickers (For your UI) -->
+    <dependency>
+        <groupId>com.toedter</groupId>
+        <artifactId>jcalendar</artifactId>
+        <version>1.4</version>
+    </dependency>
+    <dependency>
+        <groupId>org.jdatepicker</groupId>
+        <artifactId>jdatepicker</artifactId>
+        <version>1.3.4</version>
+    </dependency>
+
+  </dependencies>
+  
+</project>
